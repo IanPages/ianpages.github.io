@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario Ian</title>
+        <link rel="stylesheet" href="styles/syles.css">
+    </head>
+    <body>
+        <!--w3schools.com/action_page.php-->
+        <h1>Formulario</h1>
+        <form action="w3schools.com/action_page.php" method="post">
+            <fieldset class="datosUser">
+                <legend>Datos Usuarios</legend>
+                <label for="nombreUser">Nombre de Usuario</label>
+                <label for="passwd">Contraseña</label>
+                <input type="text" id="nombreUser" name="nombreUser" placeholder="UserName">
+                
+                <input type="password" id="passwd" name="passwd" placeholder="Introduce Contraseña">
+                <div class="contra">
+                    <label for="passcheck">Mostrar Contraseña</label>
+                    <input type="checkbox" id="passcheck" placeholder="Mostrar contraseña"> 
+                </div>
+                
+            </fieldset>
+            <fieldset class="datosPersonal">
+                <legend>Datos Personales</legend>
+                <label for="nombre">Nombre</label>
+                <label for="apell">Apellidos</label>
+
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+                <input type="text" id="apell" name="apell" placeholder="Apellidos">
+                
+                <label for="telefono">Teléfono</label>
+                <label for="codpost">Código Postal</label>
+
+                <input type="tel" id="telefono" name="telefono" placeholder="Ejem: (+34)922123123">
+                <input type="number" id="codpost" name="codpost" placeholder="38XXX" max="5">
+
+                <div class="col3">
+                    <div class="dni-nie">
+                        <label for="dni" class="titdni">DNI/NIE</label>
+                        <select name="dni" id="dni" class="eleccionDniNie">
+                            <option disabled selected>---</option>
+                            <option value="DNI">DNI</option>
+                            <option value="NIE">NIE</option>
+                        </select>
+                        <!--Bloquear si no hay seleccionado nada en select-->
+                        <input id="dni" name="dni" placeholder="DNI/NIE" maxlength="9">
+                    </div>
+                    <div class="cuentaCreacion">
+                        <label class="cuentaLabel">Crear cuenta como:</label>
+                        
+                        <label for="particular">Particular</label>
+                        <label for="empresa">Empresa</label>
+                        <input type="radio" id="particular" name="tipo_cuenta" value="Particular" required>
+                        <input type="radio" id="empresa" name="tipo_cuenta" value="Empresa" required>
+                        
+                    </div>
+                    <div class="seleccionNacimiento">
+                        <label for="nacimiento">Año de nacimiento:</label>
+                        <select name="nacimiento" id="nacimiento">
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="aficiones">
+                    <label for="aficion" class="aficiontit">Elige tus aficiones:</label>
+                    
+                    <label for="musica">Musica</label>
+                    <label for="deportes">Deportes</label>
+                    <label for="games">Video Juegos</label>
+
+                    <input type="checkbox" name="musica" id="musica">
+                    <input type="checkbox" name="deportes" id="deportes">
+                    <input type="checkbox" name="games" id="games">
+                    
+                    <label for="manualidades">Manualidades</label>
+                    <label for="artes">Artes</label>
+                    <label for="lectura">Lectura</label>
+
+                    <input type="checkbox" name="manualidades" id="manualidades">
+                    <input type="checkbox" name="artes" id="artes">
+                    <input type="checkbox" name="lectura" id="lectura">
+                    
+                    
+                </div>
+            </fieldset>
+            <fieldset class="datosPubli">
+                <legend>Datos publicación</legend>
+                <label for="tit">Título</label>
+                <input type="text" name="tit" id="tit" placeholder="Título" maxlength="15">
+                <label for="desc">Descripción</label>
+                <textarea name="desc" id="desc" rows="3" cols="50" maxlength="120"></textarea>
+            </fieldset>
+            
+            <input type="submit" value="Enviar formulario">
+        </form>
+        <br>
+        <a href="../index.html">Volver a la página inicial</a>
+    </body>
+</html>
