@@ -28,14 +28,14 @@
                 <label for="nombre">Nombre</label>
                 <label for="apell">Apellidos</label>
 
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
-                <input type="text" id="apell" name="apell" placeholder="Apellidos">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                <input type="text" id="apell" name="apell" placeholder="Apellidos" required>
                 
                 <label for="telefono">Teléfono</label>
                 <label for="codpost">Código Postal</label>
 
-                <input type="tel" id="telefono" name="telefono" placeholder="Ejem: (+34)922123123">
-                <input type="number" id="codpost" name="codpost" placeholder="38XXX" max="5">
+                <input type="tel" id="telefono" name="telefono" placeholder="Ejem: (+34)922123123" required>
+                <input type="number" id="codpost" name="codpost" placeholder="38XXX" required> 
 
                 <div class="col3">
                     <div class="dni-nie">
@@ -46,7 +46,7 @@
                             <option value="NIE">NIE</option>
                         </select>
                         <!--Bloquear si no hay seleccionado nada en select-->
-                        <input id="dni" name="dni" placeholder="DNI/NIE" maxlength="9">
+                        <input id="dni" name="dni" placeholder="DNI/NIE" maxlength="9" required>
                     </div>
                     <div class="cuentaCreacion">
                         <label class="cuentaLabel">Crear cuenta como:</label>
@@ -74,8 +74,8 @@
                     <label for="deportes">Deportes</label>
                     <label for="games">Video Juegos</label>
 
-                    <input type="checkbox" name="musica" id="musica">
-                    <input type="checkbox" name="deportes" id="deportes">
+                    <input type="checkbox" name="musica" id="musica" >
+                    <input type="checkbox" name="deportes" id="deportes" >
                     <input type="checkbox" name="games" id="games">
                     
                     <label for="manualidades">Manualidades</label>
@@ -92,9 +92,9 @@
             <fieldset class="datosPubli">
                 <legend>Datos publicación</legend>
                 <label for="tit">Título</label>
-                <input type="text" name="tit" id="tit" placeholder="Título" maxlength="15">
+                <input type="text" name="tit" id="tit" placeholder="Título" maxlength="15" required>
                 <label for="desc">Descripción</label>
-                <textarea name="desc" id="desc" rows="3" cols="50" maxlength="120"></textarea>
+                <textarea name="desc" id="desc" rows="3" cols="50" maxlength="120" required></textarea>
             </fieldset>
             
             <input type="submit" value="Enviar formulario">
