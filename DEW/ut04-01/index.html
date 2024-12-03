@@ -9,14 +9,14 @@
     <body>
         <!--w3schools.com/action_page.php-->
         <h1>Formulario</h1>
-        <form action="https://www.w3schools.com/action_page.php" method="post">
+        <form action="https://www.w3schools.com/action_page.php" method="post" novalidate id="form">
             <fieldset class="datosUser">
                 <legend>Datos Usuarios</legend>
-                <label for="nombreUser">Nombre de Usuario</label>
-                <label for="passwd">Contraseña</label>
-                <input type="text" id="nombreUser" name="nombreUser" placeholder="UserName">
+                <label for="NombreUsuario">Nombre de Usuario</label>
+                <label for="Contrasena">Contraseña</label>
+                <input type="text" id="NombreUsuario" name="NombreUsuario" minlength="4" maxlength="20" placeholder="UserName" required >
                 
-                <input type="password" id="passwd" name="passwd" placeholder="Introduce Contraseña">
+                <input type="password" id="Contrasena" name="Contrasena" pattern="[0-9]{8}" maxlength="8" placeholder="Introduce Contraseña" required>
                 <div class="contra">
                     <label for="passcheck">Mostrar Contraseña</label>
                     <input type="checkbox" id="passcheck" placeholder="Mostrar contraseña" onclick="mostrarPassword()"> 
@@ -25,45 +25,45 @@
             </fieldset>
             <fieldset class="datosPersonal">
                 <legend>Datos Personales</legend>
-                <label for="nombre">Nombre</label>
-                <label for="apell">Apellidos</label>
+                <label for="Nombre">Nombre</label>
+                <label for="Apellidos">Apellidos</label>
 
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                <input type="text" id="apell" name="apell" placeholder="Apellidos" required>
+                <input type="text" id="Nombre" name="Nombre" minlength="4" maxlength="20" placeholder="Nombre" required>
+                <input type="text" id="Apellidos" name="Apellidos" minlength="4" maxlength="20" placeholder="Apellidos" required>
                 
                 <label for="telefono">Teléfono</label>
                 <label for="codpost">Código Postal</label>
 
-                <input type="tel" id="telefono" name="telefono" placeholder="Ejem: (+34)922123123" required>
-                <input type="number" id="codpost" name="codpost" placeholder="38XXX" required> 
+                <input type="tel" id="telefono" name="Telefono" pattern="[0-9]{9}" maxlength="9" placeholder="Ejem: (+34)922123123" required>
+                <input type="number" id="codpost" name="CodigoPostal" pattern="38[0-9]{3}" maxlength="5" placeholder="38XXX" required> 
 
                 <div class="col3">
                     <div class="dni-nie">
                         <label for="dni" class="titdni">DNI/NIE</label>
-                        <select name="dni" id="dni" class="eleccionDniNie">
+                        <select name="TipoDocumento" id="dni" class="eleccionDniNie">
                             <option disabled selected>---</option>
                             <option value="DNI">DNI</option>
                             <option value="NIE">NIE</option>
                         </select>
                         <!--Bloquear si no hay seleccionado nada en select-->
-                        <input id="dni" name="dni" placeholder="DNI/NIE" maxlength="9" required>
+                        <input id="dni" name="DniNie" placeholder="DNI/NIE" maxlength="9" required>
                     </div>
                     <div class="cuentaCreacion">
                         <label class="cuentaLabel">Crear cuenta como:</label>
                         
                         <label for="particular">Particular</label>
                         <label for="empresa">Empresa</label>
-                        <input type="radio" id="particular" name="tipo_cuenta" value="Particular" required>
-                        <input type="radio" id="empresa" name="tipo_cuenta" value="Empresa" required>
+                        <input type="radio" id="particular" name="CuentaComo" value="Particular" required>
+                        <input type="radio" id="empresa" name="CuentaComo" value="Empresa" required>
                         
                     </div>
                     <div class="seleccionNacimiento">
                         <label for="nacimiento">Año de nacimiento:</label>
-                        <select name="nacimiento" id="nacimiento">
-                            <option value="2010">2010</option>
+                        <select name="AnioNacimiento" id="nacimiento">
+                            <!-- <option value="2010">2010</option>
                             <option value="2009">2009</option>
                             <option value="2008">2008</option>
-                            <option value="2007">2007</option>
+                            <option value="2007">2007</option> -->
                         </select>
                     </div>
                 </div>
@@ -92,9 +92,10 @@
             <fieldset class="datosPubli">
                 <legend>Datos publicación</legend>
                 <label for="tit">Título</label>
-                <input type="text" name="tit" id="tit" placeholder="Título" maxlength="15" required>
+                <input type="text" name="PublicacionTitulo" id="tit" placeholder="Título" minlength="4" maxlength="15" required>
+                <p id="longitudTitulo"></p>
                 <label for="desc">Descripción</label>
-                <textarea name="desc" id="desc" rows="3" cols="50" maxlength="120" required></textarea>
+                <textarea name="PublicacionDescripcion" id="desc" rows="3" cols="50" minlength="4" maxlength="120" required></textarea>
             </fieldset>
             
             <input type="submit" value="Enviar formulario">

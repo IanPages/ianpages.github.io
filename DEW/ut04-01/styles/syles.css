@@ -2,7 +2,8 @@
 input:invalid, select:invalid, textarea:invalid {
     border-color: red;
 }
-
+body{
+}
 form{
     text-align: center;
 }
