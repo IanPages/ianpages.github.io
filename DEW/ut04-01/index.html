@@ -34,7 +34,7 @@
                 <label for="telefono">Teléfono</label>
                 <label for="codpost">Código Postal</label>
 
-                <input type="tel" id="telefono" name="Telefono" pattern="[0-9]{9}" maxlength="9" placeholder="Ejem: (+34)922123123" required>
+                <input type="tel" id="telefono" name="Telefono" pattern="(+34)[0-9]{9}" maxlength="14" placeholder="Ejem: (+34)922123123" required>
                 <input type="number" id="codpost" name="CodigoPostal" pattern="38[0-9]{3}" maxlength="5" placeholder="38XXX" required> 
 
                 <div class="col3">
@@ -67,35 +67,34 @@
                         </select>
                     </div>
                 </div>
-                <div class="aficiones">
+                <div class="aficiones" id="aficionesReunidas">
                     <label for="aficion" class="aficiontit">Elige tus aficiones:</label>
                     
                     <label for="musica">Musica</label>
                     <label for="deportes">Deportes</label>
                     <label for="games">Video Juegos</label>
 
-                    <input type="checkbox" name="musica" id="musica" >
-                    <input type="checkbox" name="deportes" id="deportes" >
-                    <input type="checkbox" name="games" id="games">
+                    <input type="checkbox" name="Aficiones" value="MU" id="musica" >
+                    <input type="checkbox" name="Aficiones" value="DE" id="deportes" >
+                    <input type="checkbox" name="Aficiones" value="GA" id="games">
                     
                     <label for="manualidades">Manualidades</label>
                     <label for="artes">Artes</label>
                     <label for="lectura">Lectura</label>
 
-                    <input type="checkbox" name="manualidades" id="manualidades">
-                    <input type="checkbox" name="artes" id="artes">
-                    <input type="checkbox" name="lectura" id="lectura">
-                    
-                    
+                    <input type="checkbox" name="Aficiones" value="MA" id="manualidades">
+                    <input type="checkbox" name="Aficiones" value="AR" id="artes">
+                    <input type="checkbox" name="Aficiones" value="LE" id="lectura">
                 </div>
             </fieldset>
             <fieldset class="datosPubli">
                 <legend>Datos publicación</legend>
                 <label for="tit">Título</label>
                 <input type="text" name="PublicacionTitulo" id="tit" placeholder="Título" minlength="4" maxlength="15" required>
-                <p id="longitudTitulo"></p>
+                <p id="longitudTitulo">0 / 15</p>
                 <label for="desc">Descripción</label>
                 <textarea name="PublicacionDescripcion" id="desc" rows="3" cols="50" minlength="4" maxlength="120" required></textarea>
+                <p id="longitudTextarea">0 / 120</p>
             </fieldset>
             
             <input type="submit" value="Enviar formulario">
