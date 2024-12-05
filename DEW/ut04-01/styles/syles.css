@@ -1,13 +1,28 @@
 
 input:invalid, select:invalid, textarea:invalid {
-    border-color: red;
+    border: 2px solid red;
 }
 body{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
 }
 form{
     text-align: center;
 }
 
+.validationMessages{
+    margin: 5em;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+h1{
+    text-align: center;
+}
+.error{
+    color:red;
+    font-size: 12px;
+}
 .datosUser{
     margin: 0 auto;
     display: grid;
