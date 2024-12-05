@@ -5,13 +5,15 @@ const DOM = {
     //inputs
     inputName: document.getElementById("NombreUsuario"),
     contrasena: document.getElementById("Contrasena"),
+    passcheck: document.getElementById("passcheck"),
     nombre: document.getElementById("Nombre"),
     apellidos: document.getElementById("Apellidos"),
     fechaNacimiento: document.getElementById("nacimiento"),
     telefono: document.getElementById("telefono"),
     codPostal: document.getElementById("codpost"),
+    dniSelect: document.getElementById("dni"),
     dniNie: document.getElementById("dni2"),
-    cuentaComo: document.getElementsByName("CuentaComo"),
+    cuentaComo: document.getElementById("particular"),
     titulo: document.getElementById("tit"),
     descripcion: document.getElementById("desc"),
     longitudTitulo: document.getElementById("longitudTitulo"),
@@ -31,22 +33,39 @@ const DOM = {
     errorPublicacionDescripcion: document.getElementById("errorPublicacionDescripcion"),
 }
 
-function mostrarPassword() {
-    var z = document.getElementById("Contrasena");
-    if (z.type === "password") {
-        z.type ="text";
 
-    }else{
-        z.type= "password";
+DOM.passcheck.addEventListener("click", function(){
+    if (DOM.passcheck.checked){
+        DOM.contrasena.type="text";
     }
-}
+    else{
+        DOM.contrasena.type="password";
+    }
+})
 
+let usado = false;
 DOM.fechaNacimiento.addEventListener("click", () => {
-    for(let i = 1921; i <= 2010; i++ ){
-        let option = document.createElement("option");
-        option.append(i);
-        option.value = i
-        DOM.fechaNacimiento.append(option);
+
+    if (usado == false){
+        for(let i = 1921; i < 2011; i++ ){
+            let option = document.createElement("option");
+            option.append(i);
+            option.value = i
+            DOM.fechaNacimiento.append(option);
+        }
+        usado = true;
+    }
+    
+})
+
+DOM.dniSelect.addEventListener("click", function(){
+    if (DOM.dniSelect.value == "DNI"){
+        DOM.dniNie.placeholder="00000000X";
+        DOM.dniNie.removeAttribute("disabled");
+    }
+    else if(DOM.dniSelect.value == "NIE"){
+        DOM.dniNie.placeholder="X0000000X";
+        DOM.dniNie.removeAttribute("disabled");
     }
 })
 
@@ -60,6 +79,7 @@ DOM.descripcion.addEventListener("input", () => {
 })
 
 DOM.form.addEventListener("submit", (e) => {
+    //AFICIONES y concatenacion
     const aficionesElegidas = [];
     const aficiones = document.querySelectorAll('input[name="Aficiones"]:checked');
 
@@ -67,34 +87,64 @@ DOM.form.addEventListener("submit", (e) => {
     aficionesElegidas.push(aficion.value);
     });
 
-    if (aficionesElegidas.length <2){
-        DOM.errorAficiones.textContent="Minimo 2 selecciones"
-        e.preventDefault();
-    }
-
     let inputHidden = document.createElement("input");
     inputHidden.type = 'hidden';
     inputHidden.name = 'Aficiones';
     inputHidden.value= aficionesElegidas.join(',');
 
-    DOM.aficionesDiv.append(inputHidden);
-    let campo = "Campo Obligatorio";
+    //LO añadimos despues del while ya que el validation message tambien lo cree en la validacion de minimo 2 checkboxes
 
+    //DIV DERECHO VALIDACIONES
     let inputsRequired = document.querySelectorAll("input[required]");
     
-    //FALTA AÑADIR QUE BORRE TODOS LOS HIJOS MEDIANTE DOM 
+    //Borramos los anteriores para que no sea un lío
     while (DOM.divValidation.firstChild) {
         DOM.divValidation.removeChild(DOM.divValidation.firstChild);
     }
-    
+
+    if (aficionesElegidas.length <2){
+        DOM.errorAficiones.textContent="Elige al menos 2 opciones"
+        let span = document.createElement("span");
+        span.textContent = `${inputHidden.name} = Elige al menos 2 opciones`;
+        span.classList.add("rojo");
+        DOM.divValidation.append(span);
+        e.preventDefault();
+    }
+
+    DOM.aficionesDiv.append(inputHidden);
+
+    //Mensajes de validacion
     inputsRequired.forEach(element => {
         if (element.validationMessage!= ""){
             let span = document.createElement("span");
             span.textContent=`${element.name} = ${element.validationMessage}`
+            span.classList.add("rojo");
             DOM.divValidation.append(span);
             e.preventDefault();
         }
     });
+    //Validacion suelta del textarea
+    if(DOM.descripcion.validationMessage!= ""){
+        let span2 = document.createElement("span");
+        span2.textContent=`${DOM.descripcion.name} = ${DOM.descripcion.validationMessage}`
+        span2.classList.add("rojo");
+        DOM.divValidation.append(span2);
+        e.preventDefault();
+    }
+    //validacion de los radio
+    let radios = document.querySelectorAll("input[type=radio]:checked");
+    if(radios.length<1){
+        DOM.errorCuentaComo.textContent="Campo Obligatorio";
+        let span = document.createElement("span");
+        span.textContent=`${DOM.cuentaComo.name} = Elige uno de los dos`
+        span.classList.add("rojo");
+        DOM.divValidation.append(span);
+        e.preventDefault();
+    }
+
+    //INPUTS VACIOS DEL USUARIO
+
+    let campo = "Campo Obligatorio";
 
     if (DOM.inputName.value == ""){
         DOM.errorUserName.textContent = campo;
@@ -123,7 +173,6 @@ DOM.form.addEventListener("submit", (e) => {
     if(DOM.descripcion.value== ""){
         DOM.errorPublicacionDescripcion.textContent=campo
     }
-
 })
 
 

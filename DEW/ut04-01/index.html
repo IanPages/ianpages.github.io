@@ -24,7 +24,7 @@
 
                     <div class="contra">
                         <label for="passcheck">Mostrar Contraseña</label>
-                        <input type="checkbox" id="passcheck" placeholder="Mostrar contraseña" onclick="mostrarPassword()"> 
+                        <input type="checkbox" id="passcheck" placeholder="Mostrar contraseña"> 
                     </div>
                     
                 </fieldset>
@@ -57,7 +57,7 @@
                                 <option value="NIE">NIE</option>
                             </select>
                             <!--Bloquear si no hay seleccionado nada en select-->
-                            <input id="dni2" name="DniNie" placeholder="DNI/NIE" maxlength="9" required>
+                            <input id="dni2" name="DniNie" placeholder="DNI/NIE" disabled maxlength="9" required>
                             <span id="errorDniNie" class="error"></span>
                         </div>
                         <div class="cuentaCreacion">
@@ -65,8 +65,8 @@
                             
                             <label for="particular">Particular</label>
                             <label for="empresa">Empresa</label>
-                            <input type="radio" id="particular" name="CuentaComo" value="Particular" required>
-                            <input type="radio" id="empresa" name="CuentaComo" value="Empresa" required>
+                            <input type="radio" id="particular" name="CuentaComo" value="Particular" >
+                            <input type="radio" id="empresa" name="CuentaComo" value="Empresa" >
 
                             <span id="errorCuentaComo" class="error"></span>
                             
@@ -75,10 +75,6 @@
                             <label for="nacimiento">Año de nacimiento:</label>
                             <select name="AnioNacimiento" id="nacimiento">
                                 <option value="1920" selected>1920</option>
-                                <!-- <option value="2010">2010</option>
-                                <option value="2009">2009</option>
-                                <option value="2008">2008</option>
-                                <option value="2007">2007</option> -->
                             </select>
                         </div>
                     </div>

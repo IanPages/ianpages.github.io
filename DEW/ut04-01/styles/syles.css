@@ -10,6 +10,10 @@ form{
     text-align: center;
 }
 
+.rojo{
+    color:red;
+}
+
 .validationMessages{
     margin: 5em;
     display: grid;
@@ -64,12 +68,18 @@ h1{
             .eleccionDniNie{
                 width: 80%;
             }
+            .error{
+                grid-column: 1 /span 2;
+            }
         }
         .cuentaCreacion{
             display:grid;
             grid-template-columns: 1fr 1fr;
             .cuentaLabel{
                 grid-column: 1 /span 2;
+            }
+            .error{
+                grid-column: 1/span 2;
             }
         }
         .seleccionNacimiento{
@@ -82,6 +92,9 @@ h1{
         grid-column: 1 /span 2;
         grid-template-columns: 1fr 1fr 1fr;
         .aficiontit{
+            grid-column: 1 /span 3;
+        }
+        .error{
             grid-column: 1 /span 3;
         }
     }
