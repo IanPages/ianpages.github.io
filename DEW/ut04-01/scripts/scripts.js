@@ -109,6 +109,8 @@ DOM.form.addEventListener("submit", (e) => {
         span.classList.add("rojo");
         DOM.divValidation.append(span);
         e.preventDefault();
+    }else{
+        DOM.errorAficiones.textContent="";
     }
 
     DOM.aficionesDiv.append(inputHidden);
@@ -140,38 +142,62 @@ DOM.form.addEventListener("submit", (e) => {
         span.classList.add("rojo");
         DOM.divValidation.append(span);
         e.preventDefault();
+    }else{
+        DOM.errorCuentaComo.textContent="";
     }
 
     //INPUTS VACIOS DEL USUARIO
 
     let campo = "Campo Obligatorio";
 
-    if (DOM.inputName.value == ""){
+    if (DOM.inputName.value == "" ){
         DOM.errorUserName.textContent = campo;
+        if (!DOM.inputName.validationMessage == ""){
+            e.preventDefault();
+        }
+    }else{
+        DOM.errorUserName.textContent = "";
     }
-    if(DOM.contrasena.value == ""){
+    if(DOM.contrasena.value == "" ){
         DOM.errorPassword.textContent= campo
+    }else{
+        DOM.errorPassword.textContent= "";
     }
     if (DOM.nombre.value==""){
         DOM.errorNombre.textContent=campo
     }
+    else{
+        DOM.errorNombre.textContent="";
+    }
     if (DOM.apellidos.value == ""){
         DOM.errorApellido.textContent =campo
+    }else{
+        DOM.errorApellido.textContent = "";
     }
     if(DOM.telefono.value == ""){
         DOM.errorTelefono.textContent= campo
+    }else{
+        DOM.errorTelefono.textContent = "";
     }
     if (DOM.codPostal.value==""){
         DOM.errorCodPostal.textContent=campo
+    }else{
+        DOM.errorCodPostal.textContent = "";
     }
     if (DOM.dniNie.value == ""){
         DOM.errorDniNie.textContent=campo
+    }else{
+        DOM.errorDniNie.textContent = "";
     }
     if(DOM.titulo.value ==""){
         DOM.errorPublicacionTitulo.textContent=campo
+    }else{
+        DOM.errorPublicacionTitulo.textContent = "";
     }
     if(DOM.descripcion.value== ""){
         DOM.errorPublicacionDescripcion.textContent=campo
+    }else{
+        DOM.errorPublicacionDescripcion.textContent = "";
     }
 })
 
