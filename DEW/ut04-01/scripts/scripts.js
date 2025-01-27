@@ -33,6 +33,28 @@ const DOM = {
     errorPublicacionDescripcion: document.getElementById("errorPublicacionDescripcion"),
 }
 
+//VALIDACIONES ONCHANGE
+function validarInput (input, error, minlength){
+    input.addEventListener("change", () =>{
+        if (input.value.length < minlength){
+            error.textContent = `Mínimo ${minlength} caracteres`
+        }else{
+            error.textContent = "";
+        }
+    })
+}
+
+validarInput(DOM.inputName, DOM.errorUserName, 4);
+validarInput(DOM.contrasena, DOM.errorPassword, 8);
+validarInput(DOM.nombre, DOM.errorNombre, 4);
+validarInput(DOM.apellidos, DOM.errorApellido, 4);
+validarInput(DOM.telefono, DOM.errorTelefono, 9);
+validarInput(DOM.codPostal, DOM.errorCodPostal, 5);
+validarInput(DOM.dniNie, DOM.errorDniNie, 9);
+validarInput(DOM.titulo, DOM.errorPublicacionTitulo, 4);
+validarInput(DOM.descripcion, DOM.errorPublicacionDescripcion, 4);
+
+
 
 DOM.passcheck.addEventListener("click", function(){
     if (DOM.passcheck.checked){
